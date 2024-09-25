@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="one-way-databinding">
+<head>
+    <title>One Way data Binding Demo Program</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var myvar = angular.module("one-way-databinding",[]);
+        myvar.controller("myctrl",function($scope){
+
+            $scope.user_name="Jayesh";
+            $scope.password="jayesh125";
+        });
+
+    </script>
+</head>
+<body>
+    <div ng-controller="myctrl">
+
+            <p>UserName= {{ user_name }}</p>
+            <p>password= {{ password }}</p>
+    </div>
+    
+</body>
+</html>
