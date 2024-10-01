@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="console-databinding">
+<head>
+    <title>print to the console-databinding</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var myvar = angular.module("console-databinding",[]);
+        myvar.controller("myctrl",function($scope){
+
+            $scope.submit = function(){
+
+                console.log($scope.name);
+                console.log($scope.number);
+            };
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="myctrl">
+
+        Enter the Name:
+                <input type="text" ng-model="name"><br>
+        Enter the Number        
+                <input type="text" ng-model="number"><br>
+        <button ng-click = "submit()"> submit</button>    
+       
+    </div>
+</body>
+</html>
