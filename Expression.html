@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="Expression">
+<head>
+    <title>Expression Demo</title>
+</head>
+<body>
+    <div ng-controller="myctrl">
+        <p> 5 + 5 = {{5 + 5}}</p>
+        <p>{{firstName + " " + lastName }}</p>
+    </div>
+    <script <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script></script>
+    <script>
+        var app = angular.module('Expression',[]);
+        app.controller('myctrl', function($scope){
+            $scope.firstName = "Jayesh";
+            $scope.lastName = "Sonar";
+        });
+    </script>
+</body>
+</html>
