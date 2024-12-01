@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="ng-if">
+<head>
+    <title>ng-if Directive</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var myvar = angular.module('ng-if',[]);
+        myvar.controller("myctrl", function($scope){
+            $scope.status=true;
+            $scope.Show = function(){
+
+                $scope.status=true;
+
+            }
+            $scope.Hide = function(){
+                $scope.status=false;
+            }
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="myctrl">
+        <p ng-if = "status">This is My Message</p>
+        <button ng-click="Show()"> Show</button><br>
+        <button ng-click="Hide()">Hide</button>
+    </div>
+    
+</body>
+</html>
