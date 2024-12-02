@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="Template_Demo">
+<head>
+    <title>Simple Template Demo</title>
+</head>
+<body>
+    <div ng-controller="myctrl">
+        <h1>Welcome {{studentName}}</h1>
+        <p>Your current Grade is: {{Grade}}</p>
+
+    </div>
+    <script <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script></script>
+    <script>
+        var app = angular.module('Template_Demo',[]);
+        app.controller('myctrl', function($scope){
+            $scope.studentName = "Jayesh";
+            $scope.Grade = "A+";
+
+        });
+    </script>
+</body>
+</html>
