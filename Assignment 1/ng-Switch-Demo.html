@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="switch-Demo-jayesh">
+<head>
+    <title>ng-Switch Demo Example</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var myvar = angular.module("switch-Demo-jayesh",[]);
+        myvar.controller("myctrl-jayesh",function($scope){
+
+            $scope.selectedfruit='';
+
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="myctrl-jayesh">
+        Fruits List
+        <select ng-model="selectedfruit">
+
+            <option value="Apple">Apple</option>
+            <option value="Grapes">Grapes</option>
+            <option value="Mango">Mango</option>
+            <option value="Banana">Banana</option>
+
+        </select>
+
+        <div ng-switch="selectedfruit">
+            <p ng-switch-when="Apple">The Selected Fruit is Apple</p>
+            <p ng-switch-when="Grapes">The Selected Fruit is Grapes</p>
+            <p ng-switch-when="Mango">The Selected Fruit is Mango</p>
+            <p ng-switch-when="Banana">The Selected Fruit is Banana</p>
+        </div>
+    </div>
+
+</body>
+</html>

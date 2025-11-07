@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="eventDemo-jayesh">
+<head>
+
+    <title>angularjs Event Demo Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    
+    <script>
+        var myvar = angular.module("eventDemo-jayesh",[]);
+        myvar.controller("myctrl-jayesh",function($scope){
+            $scope.message = "This is a Demo";
+
+            $scope.singleclick=function(){
+                $scope.message = "This is Single click Event";
+            }
+            $scope.doubleclick=function(){
+                $scope.message = "This is Double click Event";
+            }
+            $scope.mouseover = function(){
+                $scope.message = "This mouse is over the Button";
+            }
+            $scope.mouseleave = function(){
+                $scope.message = "This Mouse is Exited from Button";
+            }
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="myctrl-jayesh">
+        <button ng-click="singleclick()" ng-dblclick="doubleclick()" ng-mouseover = "mouseover()" ng-mouseleave = "mouseleave()">Click Here for Demo</button>
+
+        <p> {{ message }} </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="cust&Depeinjectiom-jayesh">
+<head>
+    <title>Custom Service and Dependancy Injection Demo Example </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module('cust&Depeinjectiom-jayesh',[]);
+        //Custom Srvice
+        app.service('MathService', function(){
+            this.add = function(a, b){
+                return a + b;
+            };
+        });
+
+        //Controller using Dependancy Injectioncv
+        app.controller('MainController-jayesh', function($scope, MathService){
+
+            $scope.addNumbers = function(){
+                $scope.result = MathService.add($scope.num1, $scope.num2);
+            };
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="MainController-jayesh">
+
+        <h2>Dependancy Injection in AngularJS</h2>
+        <p>Number 1: <input type="number" ng-model="num1"></p>
+        <p>Number 2: <input type="number" ng-model="num2"></p>
+        <button ng-click="addNumbers()">Add Numbers</button>
+        <p>Result: {{ result }} </p>
+    </div>
+</body>
+</html>

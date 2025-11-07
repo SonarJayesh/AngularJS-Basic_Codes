@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="resourcedemo-jayesh">
+<head>
+    <title>$resource Services Demo Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-resource.min.js"></script>
+    <script>
+        var myvar = angular.module("resourcedemo-jayesh",['ngResource']);
+  
+        myvar.controller("myctrl-jayesh",function($scope, $resource){
+            $scope.data = [];
+            $scope.error='';
+            var mydata = $resource('https://jsonplaceholder.typicode.com/users');
+            $scope.getData = function(){
+                mydata.query().$promise.then(
+                    function(response){
+                        $scope.data = response;
+                    },function(error){
+                        $scope.error = "Error in data Fetch";
+                    }
+                );
+            }
+        });
+  </script>
+</head>
+<body>
+    <div ng-controller="myctrl-jayesh">
+        Fetching Data <br>
+        <button ng-click="getData()">Get Data</button>
+        <li ng-repeat="user in data"> {{user.name}} </li>
+        <p>Error: {{ error }} </p>
+    </div>
+</body>
+</html>
