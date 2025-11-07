@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="ng-repeate_Demo">
+
+<head>
+    <title>ng-Repeate Demo Program</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var myvar = angular.module("ng-repeate_Demo", []);
+        myvar.controller("myctrl", function ($scope) {
+
+            $scope.Fruits = ["Mango", "Apple", "Orange", "Grapes"];
+        });
+    </script>
+</head>
+
+<body>
+    <div ng-controller="myctrl">
+
+        Fruit List:
+        <li ng-repeat="fruit in Fruits">
+
+            {{ fruit }}
+        </li>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="$resource_demo">
+<head>
+    <title>$resource_demo Program</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-resource.min.js"></script>
+    <script>
+        var myvar = angular.module("$resource_demo",['ngResource']);
+        myvar.controller("myctrl",function($scope , $resource){
+
+            $scope.data = [];
+            $scope.error='';
+            var mydata = $resource('https://jsonplaceholder.typicode.com/users');
+
+            $scope.getdata=function(){
+                mydata.query().$promise.then
+                (
+                    function(response) {
+                        $scope.data=response;
+                    },
+                    function(error){
+                        $scope.error = "Data is Not Fetch";
+                    }
+                );
+            }
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="myctrl">
+
+        Fetching data: <br>
+            <button ng-click="getdata()">Get data</button>
+
+            <li ng-repeat="user in data"> {{user.name}} </li>
+            <p>Error : {{error}}</p>
+    </div>  
+</body>
+</html>

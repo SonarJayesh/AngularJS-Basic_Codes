@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="routedemo">
+<head>
+    <title>Routing Demo Program</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script>
+
+        var myvar = angular.module("routedemo",['ngRoute']);
+        var app = angular.module('myApp',['ngRoute']);
+        myvar.config(function($routeProvider){
+
+            $routeProvider
+            .when('/home',{
+                templateUrl:'homepage.html',
+                controller:'homecontroller'
+            })
+            .when('/contact',{
+                templateUrl :'contactus.html',
+                controller: 'contactcontroller'
+            })
+            .otherwise({
+                redirectTo: 'homepage.html'
+            });
+        });
+
+        myvar.controller("homecontroller", function($scope){
+            $scope.collegename = "IMRD COLLEGE, SHAHADA";
+        });
+        myvar.controller("contactcontroller",function($scope){
+            $scope.emailid = "imrdshada@gmail.com";
+        });
+
+    </script>
+    
+</head>
+<body>
+    
+    <a href="#!/home"> Home</a> 
+    <a href=" #!/contact">Contact </a>
+
+    <div ng-view></div>
+</body>
+</html>
